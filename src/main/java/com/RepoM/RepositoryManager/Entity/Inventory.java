@@ -1,33 +1,31 @@
 package com.RepoM.RepositoryManager.Entity;
 
-
-
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+//import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="inventory")
+@Table(name = "inventory")
 public class Inventory {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="quantity")
+
+	@Column(name = "quantity")
 	private int quantity;
-	
-	@Column(name="refilldate")
+
+	@Column(name = "refilldate")
 	private String refilldate;
-	
-	@OneToOne //yeh nahi hatega
+
+	@OneToOne // yeh nahi hatega
 	private Product product;
 
 	public int getId() {
@@ -46,8 +44,6 @@ public class Inventory {
 		this.quantity = quantity;
 	}
 
-	
-
 	public String getRefilldate() {
 		return refilldate;
 	}
@@ -64,10 +60,6 @@ public class Inventory {
 		this.product = product;
 	}
 
-	
-
-	
-
 	public Inventory() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -80,7 +72,5 @@ public class Inventory {
 		this.refilldate = refilldate;
 		this.product = product;
 	}
-
-	
 
 }

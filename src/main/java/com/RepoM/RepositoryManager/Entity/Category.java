@@ -9,30 +9,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+//import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="category")
+@Table(name = "category")
 public class Category {
-	
+
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="cname", nullable = false)
+
+	@Column(name = "cname", nullable = false)
 	private String cName;
-	
-	@Column(name="description", nullable = false)
+
+	@Column(name = "description", nullable = false)
 	private String description;
-	
-	@OneToMany( cascade = {CascadeType.DETACH,
-												CascadeType.MERGE,
-					
-									CascadeType.REFRESH},targetEntity = Product.class,mappedBy ="category")
+
+	@OneToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE,
+
+			CascadeType.REFRESH }, targetEntity = Product.class, mappedBy = "category")
 
 	private List<Product> products;
 
@@ -80,10 +78,5 @@ public class Category {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
-	
-	
-	
 
 }
