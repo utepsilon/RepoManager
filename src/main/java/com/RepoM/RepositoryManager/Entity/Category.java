@@ -1,8 +1,7 @@
 package com.RepoM.RepositoryManager.Entity;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +23,9 @@ public class Category {
 
 	@Column(name = "cname", nullable = false)
 	private String cName;
-
+	
+	@Column(name="cimage")
+	private String categoryImage;
 	@Column(name = "description", nullable = false)
 	private String description;
 
@@ -54,6 +55,14 @@ public class Category {
 		return description;
 	}
 
+	public String getCategoryImage() {
+		return categoryImage;
+	}
+
+	public void setCategoryImage(String categoryImage) {
+		this.categoryImage = categoryImage;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -66,10 +75,11 @@ public class Category {
 		this.products = products;
 	}
 
-	public Category(int id, String cName, String description, List<Product> products) {
+    
+	public Category(String cName, String categoryImage, String description, List<Product> products) {
 		super();
-		this.id = id;
 		this.cName = cName;
+		this.categoryImage = categoryImage;
 		this.description = description;
 		this.products = products;
 	}

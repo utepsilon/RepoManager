@@ -19,6 +19,17 @@ public class Product {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="image")
+	private String productImage;
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
+	}
 
 	@Column(name = "pname", nullable = false)
 	private String pName;
@@ -97,9 +108,11 @@ public class Product {
 		this.discount = discount;
 	}
 
-	public Product(String pName, int price, String company, Category category, Inventory inventory,
+
+	public Product(String productImage, String pName, int price, String company, Category category, Inventory inventory,
 			com.RepoM.RepositoryManager.Entity.discount discount) {
 		super();
+		this.productImage = productImage;
 		this.pName = pName;
 		this.price = price;
 		this.company = company;
